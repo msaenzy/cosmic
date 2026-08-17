@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Instagram, Menu, X, Sparkles } from 'lucide-react';
+import { Instagram, Menu, X } from 'lucide-react';
+import logoImg from '../../assets/img/logo.png';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,14 +24,18 @@ export const Navbar: React.FC = () => {
       className="sticky top-0 z-40 w-full bg-[#FFFFFF]/95 backdrop-blur-md border-b border-slate-100/80 transition-all shadow-[0_2px_12px_rgba(0,0,0,0.03)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
-        {/* Left: Logo / Wordmark in Unbounded */}
+        {/* Left: Logo / Wordmark in Unbounded with logo.png */}
         <a
           id="logo-brand"
           href="#inicio"
-          className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-[#2FA8E8] rounded-lg p-1"
+          className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-[#2FA8E8] rounded-lg p-1"
         >
-          <div className="w-8 h-8 rounded-xl bg-[#241B36] flex items-center justify-center text-[#BFE3FA] transition-transform duration-300 group-hover:scale-105 group-hover:bg-[#3B2465]">
-            <Sparkles className="w-4 h-4" />
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#241B36] p-1 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-hover:bg-[#3B2465] shadow-sm">
+            <img
+              src={logoImg}
+              alt="Logo Cosmicdesign"
+              className="w-full h-full object-contain filter drop-shadow-sm"
+            />
           </div>
           <span className="font-display font-extrabold text-xl sm:text-2xl text-[#241B36] tracking-tight group-hover:text-[#3B2465] transition-colors">
             Cosmicdesign

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Sparkles, MapPin, Mail, MessageCircle, HelpCircle, Info, X } from 'lucide-react';
+import { Instagram, MapPin, MessageCircle, X } from 'lucide-react';
 import { Button } from '../ui/Button';
+import logoImg from '../../assets/img/logo.png';
 
 export const AboutSection: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -37,9 +38,13 @@ export const AboutSection: React.FC = () => {
         viewport={{ once: false, amount: 0.3 }}
         className="w-full max-w-2xl bg-[#FFFFFF] rounded-3xl p-8 sm:p-14 text-center shadow-lg border border-slate-100/90 relative z-10 flex flex-col items-center space-y-8"
       >
-        {/* Glowing cosmic star emblem */}
-        <div className="w-14 h-14 rounded-2xl bg-[#3B2465] text-[#BFE3FA] flex items-center justify-center shadow-md">
-          <Sparkles className="w-7 h-7 animate-pulse" />
+        {/* Brand Logo Emblem */}
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#3B2465] p-2 flex items-center justify-center shadow-lg border border-[#D9C9F0]/40 transition-transform duration-300 hover:scale-105">
+          <img
+            src={logoImg}
+            alt="Isotipo y Logo Cosmicdesign"
+            className="w-full h-full object-contain filter drop-shadow-md"
+          />
         </div>
 
         {/* Big Wordmark in Unbounded */}
