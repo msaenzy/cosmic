@@ -30,11 +30,11 @@ export const Navbar: React.FC = () => {
           href="#inicio"
           className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-[#2FA8E8] rounded-lg p-1"
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#241B36] p-1 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-hover:bg-[#3B2465] shadow-sm">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#FFFFFF] p-1 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 border border-slate-100 shadow-sm">
             <img
               src={logoImg}
               alt="Logo Cosmicdesign"
-              className="w-full h-full object-contain filter drop-shadow-sm"
+              className="w-full h-full object-contain"
             />
           </div>
           <span className="font-display font-extrabold text-xl sm:text-2xl text-[#241B36] tracking-tight group-hover:text-[#3B2465] transition-colors">
@@ -132,7 +132,7 @@ export const Navbar: React.FC = () => {
             ))}
 
             <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-xs text-slate-500 font-medium">Cosmicdesign Ecuador</span>
+              <span className="text-xs text-slate-500 font-medium">San Miguel, Bs.As.</span>
               <a
                 id="mobile-drawer-instagram"
                 href={instagramUrl}

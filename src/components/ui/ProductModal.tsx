@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, MessageCircle, Check, Send, AlertCircle, Sparkles } from 'lucide-react';
+import { X, Send, Check, Sparkles, Instagram, MapPin } from 'lucide-react';
 import { ProductCollection } from '../../types';
 import { Button } from './Button';
 import { Badge } from './Badge';
@@ -17,26 +17,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   onClose,
 }) => {
   const [customText, setCustomText] = useState('');
-  const [selectedSize, setSelectedSize] = useState('Estándar');
-  const [selectedFinish, setSelectedFinish] = useState('Mate Fine Art');
   const [isCopied, setIsCopied] = useState(false);
+
+  // TODO: Actualizar con el link directo de Instagram cuando el usuario lo defina
+  const instagramUrl = '#';
 
   if (!product) return null;
 
   const isDarkCard = product.bgColor === '#3B2465' || product.bgColor === '#2FA8E8';
-
-  const handleWhatsAppInquiry = () => {
-    const phone = '593999999999'; // Ecuador country code +593 /* TODO: Reemplazar con el número de WhatsApp oficial del negocio */
-    let message = `¡Hola Cosmicdesign! ✨ Me interesa información y disponibilidad de la *${product.title}*.`;
-    if (product.category === 'personalizable' && customText.trim()) {
-      message += ` Mi idea para personalizar es: "${customText.trim()}".`;
-    }
-    if (selectedSize) {
-      message += ` Tamaño preferido: ${selectedSize}.`;
-    }
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
 
   const handleCopyShare = () => {
     navigator.clipboard?.writeText(window.location.href);
@@ -144,32 +132,22 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 </div>
               </div>
 
-              {/* Legal Notice Note for Hozier Collection */}
-              {product.isLegalNotice && (
-                <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-900 text-xs flex items-start gap-2.5">
-                  <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-semibold">Nota de autoría y licenciamiento:</span> Ilustración de homenaje y reinterpretación artística independiente de Cosmicdesign inspirada en el universo musical. (Verificar con el cliente antes de producción en masa).
-                  </div>
-                </div>
-              )}
-
               {/* Customization section if personalizable */}
               {product.category === 'personalizable' && (
                 <div className="space-y-3 bg-[#D9C9F0]/20 p-4 rounded-xl border border-[#D9C9F0]">
                   <label className="block text-sm font-semibold text-[#241B36] flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-[#3B2465]" />
-                    ¿Qué texto, constelación o fecha deseas personalizar?
+                    ¿Qué diseño, fandom o idea para tu emprendimiento querés cotizar?
                   </label>
                   <input
                     type="text"
                     value={customText}
                     onChange={(e) => setCustomText(e.target.value)}
-                    placeholder="Ej. Constelación Orión — 14 de Noviembre / 'Somos polvo de estrellas'"
+                    placeholder="Ej. Stickers para mi marca de ropa / Poster fanmade / Frase personalizada"
                     className="w-full px-4 py-2.5 rounded-lg bg-white border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3B2465]"
                   />
                   <p className="text-xs text-slate-500">
-                    Recibirás un boceto digital previo para tu aprobación antes de mandar a imprimir.
+                    Escribinos por MD con tu idea o boceto y coordinamos detalles, tamaños y cantidades.
                   </p>
                 </div>
               )}
@@ -197,21 +175,22 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 
             {/* Modal Footer / Action CTA */}
             <div className="p-4 sm:p-6 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div className="text-xs text-slate-500 text-center sm:text-left">
-                Envíos seguros a todo el <span className="font-semibold text-[#241B36]">Ecuador</span> 🇪🇨
+              <div className="text-xs text-slate-500 text-center sm:text-left flex items-center gap-1">
+                <MapPin className="w-3.5 h-3.5 text-[#2FA8E8]" />
+                <span>San Miguel, Bs.As. • Argentina 🇦🇷</span>
               </div>
 
               <div className="flex items-center gap-2 w-full sm:w-auto">
-                <Button
-                  id={`btn-order-whatsapp-${product.id}`}
-                  variant="dark"
-                  size="md"
-                  onClick={handleWhatsAppInquiry}
-                  className="w-full sm:w-auto flex-1 sm:flex-initial bg-[#241B36] hover:bg-[#3B2465]"
+                <a
+                  id={`btn-order-md-${product.id}`}
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#241B36] hover:bg-[#3B2465] text-white text-sm font-semibold transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#C9EFD4] shrink-0" />
-                  <span>Consultar por WhatsApp</span>
-                </Button>
+                  <Instagram className="w-4 h-4 text-[#D9C9F0] shrink-0" />
+                  <span>Consultar por MD</span>
+                </a>
 
                 <Button
                   id={`btn-share-${product.id}`}

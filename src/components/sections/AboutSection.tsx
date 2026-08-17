@@ -39,25 +39,30 @@ export const AboutSection: React.FC = () => {
         className="w-full max-w-2xl bg-[#FFFFFF] rounded-3xl p-8 sm:p-14 text-center shadow-lg border border-slate-100/90 relative z-10 flex flex-col items-center space-y-8"
       >
         {/* Brand Logo Emblem */}
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#3B2465] p-2 flex items-center justify-center shadow-lg border border-[#D9C9F0]/40 transition-transform duration-300 hover:scale-105">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#FFFFFF] p-2.5 flex items-center justify-center shadow-md border border-slate-200/80 transition-transform duration-300 hover:scale-105">
           <img
             src={logoImg}
             alt="Isotipo y Logo Cosmicdesign"
-            className="w-full h-full object-contain filter drop-shadow-md"
+            className="w-full h-full object-contain"
           />
         </div>
 
         {/* Big Wordmark in Unbounded */}
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h2
             id="brand-wordmark-title"
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-[#241B36] tracking-tight leading-none"
           >
             COSMICDESIGN
           </h2>
-          <p className="text-xs sm:text-sm font-medium text-slate-500 max-w-md mx-auto">
-            Diseños cósmicos, coleccionables y personalizables para que cada quien lleve su propio universo.
+          <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-lg mx-auto leading-relaxed">
+            Stickers, papelería, posters, fanmade merch y más.<br />
+            Fandom, emprendimientos y diseños personalizados.
           </p>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-xs font-semibold text-[#241B36]">
+            <MapPin className="w-3.5 h-3.5 text-[#2FA8E8]" />
+            <span>San Miguel, Bs.As. • Argentina</span>
+          </div>
         </div>
 
         {/* Horizontal Navigation Links (Stacked on mobile) */}
@@ -82,7 +87,7 @@ export const AboutSection: React.FC = () => {
             onClick={() => setActiveModal('faq')}
             className="hover:text-[#3B2465] hover:underline underline-offset-4 transition-colors cursor-pointer py-1 px-3 rounded-lg hover:bg-slate-50"
           >
-            FAQ
+            Preguntas Frecuentes
           </button>
 
           <span className="hidden sm:inline text-slate-300">•</span>
@@ -93,7 +98,7 @@ export const AboutSection: React.FC = () => {
             onClick={() => setActiveModal('contact')}
             className="hover:text-[#3B2465] hover:underline underline-offset-4 transition-colors cursor-pointer py-1 px-3 rounded-lg hover:bg-slate-50"
           >
-            Contacto
+            Consultas por MD
           </button>
         </div>
 
@@ -105,10 +110,10 @@ export const AboutSection: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram de Cosmicdesign"
-            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#D9C9F0]/30 hover:bg-[#D9C9F0]/60 text-[#3B2465] font-semibold text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#2FA8E8]"
+            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#D9C9F0]/30 hover:bg-[#D9C9F0]/60 text-[#3B2465] font-semibold text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#2FA8E8] shadow-sm"
           >
             <Instagram className="w-4 h-4" />
-            <span>@cosmicdesign</span>
+            <span>@cosmicdesign • Consultas por MD</span>
           </a>
         </div>
       </motion.div>
@@ -118,8 +123,8 @@ export const AboutSection: React.FC = () => {
         <p id="copyright-text">
           © {currentYear} Cosmicdesign. Todos los derechos reservados.
         </p>
-        <p className="text-[11px] text-slate-400 flex items-center justify-center gap-1">
-          <MapPin className="w-3 h-3 inline" /> Ecuador • Arte Gráfico Coleccionable
+        <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1 font-medium">
+          <MapPin className="w-3 h-3 inline text-[#2FA8E8]" /> San Miguel, Buenos Aires, Argentina
         </p>
       </footer>
 
@@ -145,7 +150,7 @@ export const AboutSection: React.FC = () => {
                 <h3 className="text-xl font-bold font-display text-[#241B36]">
                   {activeModal === 'about' && 'Acerca de Cosmicdesign'}
                   {activeModal === 'faq' && 'Preguntas Frecuentes (FAQ)'}
-                  {activeModal === 'contact' && 'Contacto & Pedidos'}
+                  {activeModal === 'contact' && 'Consultas & Pedidos por MD'}
                 </h3>
                 <button
                   onClick={() => setActiveModal(null)}
@@ -158,10 +163,13 @@ export const AboutSection: React.FC = () => {
               {activeModal === 'about' && (
                 <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
                   <p>
-                    <strong className="text-[#241B36]">Cosmicdesign</strong> es un estudio y tienda de diseño gráfico fundado en Ecuador. Creemos que los espacios personales y los objetos cotidianos deben reflejar la inmensidad del imaginario cósmico.
+                    <strong className="text-[#241B36]">Cosmicdesign</strong> es un emprendimiento de diseño gráfico, papelería y fanmade merch ubicado en <strong className="text-[#241B36]">San Miguel, Buenos Aires, Argentina</strong>.
                   </p>
                   <p>
-                    Cada colección nace de exploraciones tipográficas, geométricas e ilustraciones botánicas y estelares, plasmadas en posters de alta gama, stickers de vinilo ultra-resistente y piezas personalizadas por encargo.
+                    Creamos stickers troquelados, láminas/posters, artículos de papelería linda y merchandising temático para fans.
+                  </p>
+                  <p>
+                    Además, realizamos <strong>diseños personalizados</strong> tanto para regalos y fechas especiales como para la imagen y stickers de tu propio <strong>emprendimiento</strong>.
                   </p>
                 </div>
               )}
@@ -169,16 +177,20 @@ export const AboutSection: React.FC = () => {
               {activeModal === 'faq' && (
                 <div className="space-y-3 text-xs sm:text-sm text-slate-600 max-h-80 overflow-y-auto pr-1">
                   <div className="p-3 bg-slate-50 rounded-xl space-y-1">
-                    <p className="font-semibold text-[#241B36]">¿Hacen envíos a todo Ecuador?</p>
-                    <p>Sí, enviamos a todas las provincias mediante Servientrega o courier local en tubos rígidos y embalaje protector.</p>
+                    <p className="font-semibold text-[#241B36]">¿Dónde están ubicados y hacen envíos?</p>
+                    <p>Estamos en <strong>San Miguel, Buenos Aires</strong>. Realizamos entregas y envíos a coordinar.</p>
                   </div>
                   <div className="p-3 bg-slate-50 rounded-xl space-y-1">
-                    <p className="font-semibold text-[#241B36]">¿Cómo funciona el arte personalizado?</p>
-                    <p>Nos indicas tu fecha, constelación o frase. Elaboramos la propuesta gráfica y te enviamos una muestra digital antes de imprimir.</p>
+                    <p className="font-semibold text-[#241B36]">¿Cómo realizo una consulta o encargo?</p>
+                    <p>Todas las consultas, pedidos de catálogo y cotizaciones se realizan directamente por <strong>Mensaje Directo (MD) en Instagram</strong>.</p>
                   </div>
                   <div className="p-3 bg-slate-50 rounded-xl space-y-1">
-                    <p className="font-semibold text-[#241B36]">¿Qué materiales utilizan?</p>
-                    <p>Papeles Fine Art y couché mate de 250g a 300g, tintas UV de larga duración y vinilo troquelado impermeable.</p>
+                    <p className="font-semibold text-[#241B36]">¿Hacen diseños para emprendimientos?</p>
+                    <p>¡Sí! Diseñamos stickers con tu logo, tarjetas de agradecimiento, packaging y papelería personalizada para impulsar tu marca.</p>
+                  </div>
+                  <div className="p-3 bg-slate-50 rounded-xl space-y-1">
+                    <p className="font-semibold text-[#241B36]">¿Los stickers son resistentes al agua?</p>
+                    <p>Sí, son de vinilo resistente, ideales para termos, notebooks, celulares y botellas.</p>
                   </div>
                 </div>
               )}
@@ -186,27 +198,24 @@ export const AboutSection: React.FC = () => {
               {activeModal === 'contact' && (
                 <div className="space-y-4 text-sm text-slate-600">
                   <p>
-                    ¿Tienes una idea especial o deseas realizar un pedido personalizado? Escríbenos directamente:
+                    ¿Querés hacer un pedido, consultar por stock o pedir un diseño personalizado? Escribinos por MD:
                   </p>
                   <div className="space-y-2">
-                    <a
-                      href="https://wa.me/593999999999?text=Hola%20Cosmicdesign!%20Deseo%20hacer%20una%20consulta."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 rounded-xl bg-[#C9EFD4]/40 hover:bg-[#C9EFD4] text-[#241B36] font-semibold transition-colors"
-                    >
-                      <MessageCircle className="w-5 h-5 text-emerald-700" />
-                      <span>WhatsApp (+593 Ecuador)</span>
-                    </a>
                     <a
                       href={instagramUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 rounded-xl bg-[#D9C9F0]/40 hover:bg-[#D9C9F0] text-[#241B36] font-semibold transition-colors"
+                      className="flex items-center gap-3 p-4 rounded-xl bg-[#D9C9F0]/40 hover:bg-[#D9C9F0] text-[#241B36] font-semibold transition-colors"
                     >
                       <Instagram className="w-5 h-5 text-[#3B2465]" />
-                      <span>Mensaje directo en Instagram</span>
+                      <div>
+                        <div className="font-bold">Instagram MD (@cosmicdesign)</div>
+                        <div className="text-xs text-slate-600 font-normal">Respondemos todas tus dudas por mensaje directo</div>
+                      </div>
                     </a>
+                  </div>
+                  <div className="p-3 bg-slate-50 rounded-xl text-xs text-slate-500">
+                    📍 <strong>Ubicación:</strong> San Miguel, Buenos Aires, Argentina.
                   </div>
                 </div>
               )}

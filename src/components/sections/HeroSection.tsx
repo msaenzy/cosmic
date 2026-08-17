@@ -79,15 +79,15 @@ export const HeroSection: React.FC = () => {
         <motion.p
           variants={itemFadeUp}
           id="hero-subtitle"
-          className="text-sm sm:text-base md:text-lg font-medium text-[#241B36]/80 tracking-wide uppercase font-sans mb-3 sm:mb-4"
+          className="text-xs sm:text-sm md:text-base font-semibold text-[#241B36]/80 tracking-widest uppercase font-sans mb-3 sm:mb-4"
         >
-          Explora nuestro
+          Stickers • Papelería • Posters • Fanmade Merch
         </motion.p>
 
         {/* Big Headline H1 (Staggered by word) */}
         <motion.h1
           id="hero-title"
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display text-[#241B36] tracking-tight leading-[1.08] mb-8 sm:mb-10 flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display text-[#241B36] tracking-tight leading-[1.08] mb-4 sm:mb-6 flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4"
         >
           {headlineWords.map((word, index) => (
             <motion.span
@@ -100,22 +100,40 @@ export const HeroSection: React.FC = () => {
           ))}
         </motion.h1>
 
+        {/* Bio subtitle */}
+        <motion.p
+          variants={itemFadeUp}
+          className="text-sm sm:text-base md:text-lg text-[#241B36]/90 max-w-xl mx-auto mb-8 sm:mb-10 font-medium"
+        >
+          Fandom, emprendimientos y diseños personalizados.
+        </motion.p>
+
         {/* Link / Button: Comprar ahora (Delayed entrance) */}
         <motion.div
           variants={itemFadeUp}
-          className="flex flex-col items-center justify-center gap-4"
+          className="flex flex-col items-center justify-center gap-3"
         >
-          <a
-            id="hero-cta-button"
-            href="#tienda"
-            className="group relative inline-flex items-center gap-3 px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl bg-[#241B36] text-[#FFFFFF] font-semibold text-base sm:text-lg shadow-lg hover:bg-[#3B2465] hover:shadow-xl active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#2FA8E8]/40"
-          >
-            <span>Comprar ahora</span>
-            <ArrowDown className="w-5 h-5 transition-transform duration-300 group-hover:translate-y-1 text-[#BFE3FA]" />
-          </a>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              id="hero-cta-button"
+              href="#tienda"
+              className="group relative inline-flex items-center gap-3 px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl bg-[#241B36] text-[#FFFFFF] font-semibold text-base sm:text-lg shadow-lg hover:bg-[#3B2465] hover:shadow-xl active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#2FA8E8]/40"
+            >
+              <span>Ver catálogo</span>
+              <ArrowDown className="w-5 h-5 transition-transform duration-300 group-hover:translate-y-1 text-[#BFE3FA]" />
+            </a>
 
-          <p className="text-xs sm:text-sm text-slate-500 font-sans mt-2">
-            Diseños cósmicos, coleccionables y personalizables 🇪🇨
+            <a
+              id="hero-cta-contact"
+              href="#acerca-de"
+              className="inline-flex items-center gap-2 px-6 py-3.5 sm:py-4 rounded-2xl bg-white/80 hover:bg-white text-[#241B36] font-semibold text-base border border-slate-200/80 shadow-sm transition-all duration-200"
+            >
+              <span>Consultas por MD</span>
+            </a>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-600 font-sans mt-2 flex items-center justify-center gap-1.5 font-medium">
+            <span>San Miguel, Bs.As. • Argentina</span>
           </p>
         </motion.div>
       </motion.div>
