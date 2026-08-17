@@ -58,6 +58,7 @@ export const bottomRowProducts: ProductCollection[] = [
   {
     id: 'posters',
     title: 'POSTERS',
+    badge: 'Impresión Premium',
     tagline: 'Paredes con onda, música y fandom',
     description: 'Posters de alta definición con estética cósmica, fandoms, música, cine y arte visual para transformar tus espacios.',
     bgColor: '#FBEFE0',
@@ -79,6 +80,7 @@ export const bottomRowProducts: ProductCollection[] = [
   {
     id: 'stickers',
     title: 'STICKERS',
+    badge: 'Vinilo Waterproof',
     tagline: 'Vinilos resistentes para tus termos y compus',
     description: 'Stickers troquelados de vinilo holográfico y mate. Resistentes al agua, roces y paso del tiempo, ideales para termos, notebooks, celulares y más.',
     bgColor: '#2FA8E8',
@@ -100,6 +102,7 @@ export const bottomRowProducts: ProductCollection[] = [
   {
     id: 'ymuchomas',
     title: 'PAPELERÍA & FANMADE',
+    badge: 'Diseño & Accesorios',
     tagline: 'Libretas, prints, señaladores y mucho más',
     description: 'Artículos de papelería linda, señaladores, mini prints, photocards y accesorios fanmade pensados con amor al detalle.',
     bgColor: '#3B2465',

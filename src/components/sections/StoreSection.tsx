@@ -93,10 +93,10 @@ export const StoreSection: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.15 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch"
         >
           {topRowProducts.map((product, index) => (
-            <motion.div key={product.id} variants={topRowItemVariants} className="h-full">
+            <motion.div key={product.id} variants={topRowItemVariants} className="h-full flex flex-col">
               <ProductCard
                 product={product}
                 isLarge={true}
@@ -117,7 +117,7 @@ export const StoreSection: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch"
         >
           {bottomRowProducts.map((product, index) => (
-            <motion.div key={product.id} variants={bottomRowItemVariants} className="h-full">
+            <motion.div key={product.id} variants={bottomRowItemVariants} className="h-full flex flex-col">
               <ProductCard
                 product={product}
                 isLarge={false}

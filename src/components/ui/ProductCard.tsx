@@ -22,10 +22,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     <div
       id={`card-${product.id}`}
       style={{ backgroundColor: product.bgColor }}
-      className={`group relative rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden transition-all duration-300 card-hover-lift border border-black/5 shadow-sm hover:shadow-xl ${
+      className={`group relative w-full h-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden transition-all duration-300 card-hover-lift border border-black/5 shadow-sm hover:shadow-xl ${
         isLarge
-          ? 'min-h-[360px] sm:min-h-[420px] lg:min-h-[440px]'
-          : 'min-h-[320px] sm:min-h-[360px]'
+          ? 'min-h-[420px] sm:min-h-[460px]'
+          : 'min-h-[380px] sm:min-h-[410px]'
       }`}
     >
       {/* Subtle glowing orbital background flare */}
@@ -36,9 +36,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         }}
       />
 
-      {/* Top Header Content */}
-      <div className="relative z-10 space-y-3">
-        {product.badge && (
+      {/* Top Header Content - Fixed baseline alignment */}
+      <div className="relative z-10 w-full flex flex-col items-start min-h-[5.5rem] sm:min-h-[6rem]">
+        {product.badge ? (
           <div className="mb-2">
             <Badge
               id={`badge-${product.id}`}
@@ -48,14 +48,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               {product.badge}
             </Badge>
           </div>
+        ) : (
+          <div className="mb-2 h-6" />
         )}
 
         <h2
           id={`title-${product.id}`}
-          className={`font-display font-extrabold tracking-tight leading-tight ${
+          className={`font-display font-extrabold tracking-tight leading-tight line-clamp-2 ${
             isLarge
-              ? 'text-2xl sm:text-3xl lg:text-4xl'
-              : 'text-xl sm:text-2xl lg:text-3xl'
+              ? 'text-2xl sm:text-3xl'
+              : 'text-xl sm:text-2xl'
           }`}
           style={{ color: product.textColor }}
         >
@@ -63,12 +65,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </h2>
       </div>
 
-      {/* Center/Bottom Image & Action Button */}
-      <div className="relative z-10 mt-6 sm:mt-8 flex flex-col items-start justify-end flex-1">
-        {/* Product Art PNG */}
+      {/* Center Image Canvas Area */}
+      <div className="relative z-10 my-auto flex-1 w-full flex items-center justify-center py-4">
         <div
-          className={`relative w-full flex items-center justify-center my-auto transition-transform duration-500 ease-out group-hover:scale-105 ${
-            isLarge ? 'h-44 sm:h-52' : 'h-36 sm:h-44'
+          className={`relative w-full flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-105 ${
+            isLarge ? 'h-48 sm:h-56' : 'h-40 sm:h-48'
           }`}
         >
           <img
@@ -78,23 +79,23 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             className="max-h-full max-w-full object-contain filter drop-shadow-md transition-all duration-300"
           />
         </div>
+      </div>
 
-        {/* Action Button */}
-        <div className="mt-4 w-full flex items-center justify-between">
-          <Button
-            id={`btn-action-${product.id}`}
-            variant={product.buttonVariant}
-            size="md"
-            onClick={() => onSelect(product)}
-            className={`w-full sm:w-auto font-medium ${
-              isWhiteText
-                ? 'bg-white text-[#241B36] hover:bg-white/90 shadow-md'
-                : 'bg-[#241B36] text-white hover:bg-[#3B2465]'
-            }`}
-          >
-            {product.buttonText}
-          </Button>
-        </div>
+      {/* Footer CTA Button - Uniform full width & aligned baseline */}
+      <div className="relative z-10 mt-auto pt-4 border-t border-black/5 w-full flex items-center justify-between">
+        <Button
+          id={`btn-action-${product.id}`}
+          variant={product.buttonVariant}
+          size="md"
+          onClick={() => onSelect(product)}
+          className={`w-full font-semibold transition-all duration-200 shadow-sm hover:shadow-md ${
+            isWhiteText
+              ? 'bg-white text-[#241B36] hover:bg-white/90'
+              : 'bg-[#241B36] text-white hover:bg-[#3B2465]'
+          }`}
+        >
+          {product.buttonText}
+        </Button>
       </div>
     </div>
   );
