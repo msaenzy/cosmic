@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Instagram, MapPin, MessageCircle, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import logoImg from '../../assets/img/logo.png';
+import { INSTAGRAM_URL, INSTAGRAM_DM_URL, INSTAGRAM_HANDLE, LOCATION_TEXT, LOCATION_SHORT } from '../../data/constants';
 
 export const AboutSection: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  // TODO: reemplazar con URL real de Instagram de Cosmicdesign
-  const instagramUrl = '#';
+  const instagramUrl = INSTAGRAM_URL;
+  const instagramDmUrl = INSTAGRAM_DM_URL;
+
 
   const [activeModal, setActiveModal] = useState<'about' | 'faq' | 'contact' | null>(null);
 
@@ -106,14 +108,14 @@ export const AboutSection: React.FC = () => {
         <div className="pt-2">
           <a
             id="brand-instagram-button"
-            href={instagramUrl}
+            href={instagramDmUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram de Cosmicdesign"
+            aria-label="Instagram Direct de Cosmicdesign"
             className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#D9C9F0]/30 hover:bg-[#D9C9F0]/60 text-[#3B2465] font-semibold text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#2FA8E8] shadow-sm"
           >
             <Instagram className="w-4 h-4" />
-            <span>@cosmicdesign • Consultas por MD</span>
+            <span>{INSTAGRAM_HANDLE} • Consultas por DM</span>
           </a>
         </div>
       </motion.div>
@@ -178,11 +180,11 @@ export const AboutSection: React.FC = () => {
                 <div className="space-y-3 text-xs sm:text-sm text-slate-600 max-h-80 overflow-y-auto pr-1">
                   <div className="p-3 bg-slate-50 rounded-xl space-y-1">
                     <p className="font-semibold text-[#241B36]">¿Dónde están ubicados y hacen envíos?</p>
-                    <p>Estamos en <strong>San Miguel, Buenos Aires</strong>. Realizamos entregas y envíos a coordinar.</p>
+                    <p>Estamos en <strong>{LOCATION_SHORT}</strong>. Realizamos entregas y envíos a coordinar.</p>
                   </div>
                   <div className="p-3 bg-slate-50 rounded-xl space-y-1">
                     <p className="font-semibold text-[#241B36]">¿Cómo realizo una consulta o encargo?</p>
-                    <p>Todas las consultas, pedidos de catálogo y cotizaciones se realizan directamente por <strong>Mensaje Directo (MD) en Instagram</strong>.</p>
+                    <p>Todas las consultas, pedidos de catálogo y cotizaciones se realizan directamente por <strong>Mensaje Directo (MD) en Instagram ({INSTAGRAM_HANDLE})</strong>.</p>
                   </div>
                   <div className="p-3 bg-slate-50 rounded-xl space-y-1">
                     <p className="font-semibold text-[#241B36]">¿Hacen diseños para emprendimientos?</p>
@@ -198,24 +200,24 @@ export const AboutSection: React.FC = () => {
               {activeModal === 'contact' && (
                 <div className="space-y-4 text-sm text-slate-600">
                   <p>
-                    ¿Querés hacer un pedido, consultar por stock o pedir un diseño personalizado? Escribinos por MD:
+                    ¿Querés hacer un pedido, consultar por stock o pedir un diseño personalizado? Escribinos por DM directo en Instagram:
                   </p>
                   <div className="space-y-2">
                     <a
-                      href={instagramUrl}
+                      href={instagramDmUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 p-4 rounded-xl bg-[#D9C9F0]/40 hover:bg-[#D9C9F0] text-[#241B36] font-semibold transition-colors"
                     >
                       <Instagram className="w-5 h-5 text-[#3B2465]" />
                       <div>
-                        <div className="font-bold">Instagram MD (@cosmicdesign)</div>
-                        <div className="text-xs text-slate-600 font-normal">Respondemos todas tus dudas por mensaje directo</div>
+                        <div className="font-bold">Instagram DM ({INSTAGRAM_HANDLE})</div>
+                        <div className="text-xs text-slate-600 font-normal">Abrir chat de mensaje directo en Instagram</div>
                       </div>
                     </a>
                   </div>
                   <div className="p-3 bg-slate-50 rounded-xl text-xs text-slate-500">
-                    📍 <strong>Ubicación:</strong> San Miguel, Buenos Aires, Argentina.
+                    📍 <strong>Ubicación:</strong> {LOCATION_TEXT}.
                   </div>
                 </div>
               )}

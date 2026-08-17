@@ -22,10 +22,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     <div
       id={`card-${product.id}`}
       style={{ backgroundColor: product.bgColor }}
-      className={`group relative w-full h-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden transition-all duration-300 card-hover-lift border border-black/5 shadow-sm hover:shadow-xl ${
+      className={`group relative w-full h-full rounded-3xl p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300 card-hover-lift border border-black/5 shadow-sm hover:shadow-xl ${
         isLarge
-          ? 'min-h-[420px] sm:min-h-[460px]'
-          : 'min-h-[380px] sm:min-h-[410px]'
+          ? 'min-h-[480px] sm:min-h-[520px]'
+          : 'min-h-[440px] sm:min-h-[470px]'
       }`}
     >
       {/* Subtle glowing orbital background flare */}
@@ -65,18 +65,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </h2>
       </div>
 
-      {/* Center Image Canvas Area */}
-      <div className="relative z-10 my-auto flex-1 w-full flex items-center justify-center py-4">
+      {/* Center 4:5 Vertical Image Frame */}
+      <div className="relative z-10 my-auto flex-1 w-full flex items-center justify-center py-3">
         <div
-          className={`relative w-full flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-105 ${
-            isLarge ? 'h-48 sm:h-56' : 'h-40 sm:h-48'
+          className={`relative aspect-[4/5] w-full flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-105 ${
+            isLarge
+              ? 'max-w-[230px] sm:max-w-[270px] max-h-[340px]'
+              : 'max-w-[190px] sm:max-w-[220px] max-h-[280px]'
           }`}
         >
           <img
             src={product.image}
             alt={product.imageAlt}
             loading="lazy"
-            className="max-h-full max-w-full object-contain filter drop-shadow-md transition-all duration-300"
+            className="w-full h-full object-contain filter drop-shadow-md transition-all duration-300"
           />
         </div>
       </div>

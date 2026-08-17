@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Instagram, Menu, X } from 'lucide-react';
 import logoImg from '../../assets/img/logo.png';
+import { INSTAGRAM_URL, INSTAGRAM_HANDLE, LOCATION_SHORT } from '../../data/constants';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // TODO: reemplazar con URL real de Instagram de Cosmicdesign cuando el cliente provea el @ o link
-  const instagramUrl = '#';
+  const instagramUrl = INSTAGRAM_URL;
 
   const navLinks = [
     { label: 'Inicio', href: '#inicio', id: 'nav-inicio' },
@@ -132,16 +132,16 @@ export const Navbar: React.FC = () => {
             ))}
 
             <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-xs text-slate-500 font-medium">San Miguel, Bs.As.</span>
+              <span className="text-xs text-slate-500 font-medium">{LOCATION_SHORT}</span>
               <a
                 id="mobile-drawer-instagram"
                 href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs font-semibold text-[#241B36] bg-[#D9C9F0]/40 px-3 py-1.5 rounded-lg"
+                className="flex items-center gap-2 text-xs font-semibold text-[#241B36] bg-[#D9C9F0]/40 hover:bg-[#D9C9F0] px-3 py-1.5 rounded-lg transition-colors"
               >
                 <Instagram className="w-4 h-4 text-[#3B2465]" />
-                <span>Instagram</span>
+                <span>{INSTAGRAM_HANDLE}</span>
               </a>
             </div>
           </div>

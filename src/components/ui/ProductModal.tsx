@@ -4,6 +4,7 @@ import { X, Send, Check, Sparkles, Instagram, MapPin } from 'lucide-react';
 import { ProductCollection } from '../../types';
 import { Button } from './Button';
 import { Badge } from './Badge';
+import { INSTAGRAM_URL, INSTAGRAM_DM_URL, INSTAGRAM_HANDLE, LOCATION_SHORT } from '../../data/constants';
 
 interface ProductModalProps {
   product: ProductCollection | null;
@@ -19,8 +20,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   const [customText, setCustomText] = useState('');
   const [isCopied, setIsCopied] = useState(false);
 
-  // TODO: Actualizar con el link directo de Instagram cuando el usuario lo defina
-  const instagramUrl = '#';
+  const instagramDmUrl = INSTAGRAM_DM_URL;
+
 
   if (!product) return null;
 
@@ -103,7 +104,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               {/* Product preview and details */}
               <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
                 <div
-                  className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl flex items-center justify-center p-3 shrink-0 relative overflow-hidden shadow-inner"
+                  className="w-44 sm:w-52 aspect-[4/5] rounded-2xl flex items-center justify-center p-3 shrink-0 relative overflow-hidden shadow-inner"
                   style={{ backgroundColor: product.bgColor }}
                 >
                   <img
@@ -147,7 +148,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                     className="w-full px-4 py-2.5 rounded-lg bg-white border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3B2465]"
                   />
                   <p className="text-xs text-slate-500">
-                    Escribinos por MD con tu idea o boceto y coordinamos detalles, tamaños y cantidades.
+                    Escribinos por MD a <strong className="text-[#3B2465]">{INSTAGRAM_HANDLE}</strong> con tu idea o boceto y coordinamos detalles, tamaños y cantidades.
                   </p>
                 </div>
               )}
@@ -177,19 +178,19 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             <div className="p-4 sm:p-6 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="text-xs text-slate-500 text-center sm:text-left flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-[#2FA8E8]" />
-                <span>San Miguel, Bs.As. • Argentina 🇦🇷</span>
+                <span>{LOCATION_SHORT} • Argentina 🇦🇷</span>
               </div>
 
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 <a
                   id={`btn-order-md-${product.id}`}
-                  href={instagramUrl}
+                  href={instagramDmUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#241B36] hover:bg-[#3B2465] text-white text-sm font-semibold transition-colors"
+                  className="w-full sm:w-auto flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#241B36] hover:bg-[#3B2465] text-white text-sm font-semibold transition-colors shadow-sm"
                 >
                   <Instagram className="w-4 h-4 text-[#D9C9F0] shrink-0" />
-                  <span>Consultar por MD</span>
+                  <span>Consultar por DM ({INSTAGRAM_HANDLE})</span>
                 </a>
 
                 <Button

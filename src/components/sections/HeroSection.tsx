@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowDown, Sparkles, Instagram } from 'lucide-react';
+import { INSTAGRAM_URL, INSTAGRAM_DM_URL, INSTAGRAM_HANDLE, LOCATION_SHORT } from '../../data/constants';
+
 
 export const HeroSection: React.FC = () => {
   const headlineWords = ["UNIVERSO", "CREATIVO"];
@@ -125,15 +127,18 @@ export const HeroSection: React.FC = () => {
 
             <a
               id="hero-cta-contact"
-              href="#acerca-de"
-              className="inline-flex items-center gap-2 px-6 py-3.5 sm:py-4 rounded-2xl bg-white/80 hover:bg-white text-[#241B36] font-semibold text-base border border-slate-200/80 shadow-sm transition-all duration-200"
+              href={INSTAGRAM_DM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 sm:py-4 rounded-2xl bg-white/90 hover:bg-white text-[#241B36] hover:text-[#3B2465] font-semibold text-base border border-slate-200/80 shadow-sm transition-all duration-200"
             >
-              <span>Consultas por MD</span>
+              <Instagram className="w-4 h-4 text-[#3B2465]" />
+              <span>Consultas por DM ({INSTAGRAM_HANDLE})</span>
             </a>
           </div>
 
           <p className="text-xs sm:text-sm text-slate-600 font-sans mt-2 flex items-center justify-center gap-1.5 font-medium">
-            <span>San Miguel, Bs.As. • Argentina</span>
+            <span>{LOCATION_SHORT} • Argentina</span>
           </p>
         </motion.div>
       </motion.div>
