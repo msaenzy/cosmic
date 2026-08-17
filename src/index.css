@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Unbounded', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+
+  --color-cosmic-dark: #241B36;
+  --color-cosmic-white: #FFFFFF;
+  --color-cosmic-celeste: #BFE3FA;
+  --color-cosmic-lila: #D9C9F0;
+  --color-cosmic-green: #C9EFD4;
+  --color-cosmic-peach: #FBEFE0;
+  --color-cosmic-blue: #2FA8E8;
+  --color-cosmic-purple: #3B2465;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: #241B36;
+    background-color: #FFFFFF;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #241B36;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Blueprint subtle grid pattern for About/Brand Identity Section */
+.bg-blueprint {
+  background-color: #FFFFFF;
+  background-image: 
+    linear-gradient(to right, rgba(36, 27, 54, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(36, 27, 54, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Hero subtle starry dust & nebula glow */
+.hero-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #EAF5FD 50%, #BFE3FA 100%);
+}
+
+.store-gradient {
+  background: linear-gradient(315deg, #D9C9F0 0%, #E8F4FC 60%, #BFE3FA 100%);
+}
+
+/* Custom glassmorphism card */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 40px -15px rgba(36, 27, 54, 0.07), 0 0 0 1px rgba(191, 227, 250, 0.4);
+}
+
+/* Cosmic interactive glow */
+.card-hover-lift {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -12px rgba(36, 27, 54, 0.12);
+}

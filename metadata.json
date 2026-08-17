@@ -1,0 +1,6 @@
+{
+  "name": "Cosmicdesign",
+  "description": "Tienda de diseño gráfico y arte coleccionable. Diseños cósmicos, coleccionables y personalizables para que cada quien lleve su propio universo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
